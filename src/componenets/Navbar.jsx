@@ -1,4 +1,6 @@
 import React from 'react'
+import githubIcon from "../assets/icons/github.png";
+
 
 const Navbar = () => {
   return (
@@ -19,7 +21,7 @@ const Navbar = () => {
         <button className="bg-black text-white my-5 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-gray-800 transition ring-white ring-2">
           <img
             className="w-6 h-6 invert"
-            src="/icons/github.png"
+            src={githubIcon}
             alt="GitHub logo"
           />
           <span className="font-semibold">GitHub</span>

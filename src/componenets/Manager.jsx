@@ -6,7 +6,10 @@ import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import { Bounce } from "react-toastify";
 import { v4 as uuidv4 } from 'uuid';
-import { config } from '@fortawesome/fontawesome-svg-core';
+import see from "../assets/icons/see.png";
+import eyecross from "../assets/icons/eyecross.png";
+
+
 
 const Manager = () => {
 
@@ -38,19 +41,22 @@ const Manager = () => {
     }
 
 
+    const [show, setShow] = useState(false);
+
     const showPassword = () => {
         passwordRef.current.type = "text"
         console.log(ref.current.src);
-        if (ref.current.src.includes("icons/see.png")) {
-            ref.current.src = "/icons/eyecross.png"
+        if (ref.current.src.includes(see)) {
+            ref.current.src = eyecross;
             passwordRef.current.type = "password"
         }
-        else {
-            ref.current.src = "/icons/see.png";
-            passwordRef.current.type = "text"
-
-        }
+        else { ref.current.src = see;
+             passwordRef.current.type = "text" }
     }
+
+
+
+
 
     const savePassword = () => {
         if (!form.site.trim() || !form.username.trim() || !form.password.trim()) {
@@ -63,16 +69,16 @@ const Manager = () => {
         localStorage.setItem("password", JSON.stringify(updatedArray));
         setform({ site: "", username: "", password: "" });
         toast.success('Password saved!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition: Bounce,
-            });
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Bounce,
+        });
     }
 
 
@@ -144,7 +150,7 @@ const Manager = () => {
                         <div className="relative">
                             <input ref={passwordRef} value={form.password} onChange={handleChange} placeholder='Enter Password' type="password" name='password' className='rounded-full border border-teal-600 w-full p-4 py-1' />
                             <span className='absolute right-[0px] top-[-3px]  cursor-pointer' onClick={showPassword}>
-                                <img ref={ref} className='p-1' width={40} src="/icons/see.png" alt="eye" />
+                                <img ref={ref} className='p-1' width={40} src={eyecross} alt="eye" />
                             </span>
                         </div>
                     </div>
