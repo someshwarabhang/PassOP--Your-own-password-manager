@@ -7,8 +7,8 @@
   .mycontainer {
     @apply container max-w-5xl mx-auto py-14;
   }
-  ::-webkit-scrollbar {
-  display: none;
-}
-}
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
